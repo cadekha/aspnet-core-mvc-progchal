@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Assignment3.Models.Course> // Model is a List of Courses
+@{
+    ViewData["Title"] = "View All Courses";
+}
+
+<h1 class="display-4">Displaying All Courses</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Course ID
+            </th>
+            <th>
+                Course Title
+            </th>
+            <th>
+                Credit Points
+            </th>
+            <th>
+                Career
+            </th>
+            <th>
+                Course Coordinator
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => course.CourseID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.CreditPoints)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.Career)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => course.Coordinator)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

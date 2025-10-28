@@ -79,6 +79,24 @@ namespace Assignment3.Services
                 _context.Students.Add(student2);
                 await _context.SaveChangesAsync();
 
+                // Enrollments
+                var enrollment1 = new Enrollment
+                {
+                    CourseID = course1.CourseID,
+                    StudentID = student1.StudentID
+                };
+
+                var enrollment2 = new Enrollment
+                {
+                    CourseID = course2.CourseID,
+                    StudentID = student2.StudentID
+                };
+
+                // Save to db
+                _context.Enrolled.Add(enrollment1);
+                _context.Enrolled.Add(enrollment2);
+                await _context.SaveChangesAsync();
+
                 _logger.LogInformation("Default data seeded.");
 
             }
