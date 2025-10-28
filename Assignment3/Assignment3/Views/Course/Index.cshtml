@@ -3,6 +3,11 @@
     ViewData["Title"] = "View All Courses";
 }
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+}
+
 <h1 class="display-4">Displaying All Courses</h1>
 
 <p>This page displays all courses in the s4002894_a3 database.</p>

@@ -58,6 +58,7 @@ namespace Assignment3.Controllers
                 {
                     _context.Add(enrollment);
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = "Student enrolled successfully.";
                     return RedirectToAction("Index", "Course"); // Return user back to Courses view
                 }
 

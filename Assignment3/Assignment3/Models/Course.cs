@@ -31,7 +31,7 @@ namespace Assignment3.Models
         // Coordinator - name of coordinator
         [Required]
         [StringLength(50)] // string(50)
-        [RegularExpression(@"^[A-Z][a-zA-Z\s]*$")] // First character upper case, only contains letters and spaces
+        [RegularExpression(@"^[A-Z][a-zA-Z\s]*$", ErrorMessage = "Coordinator name must start with an upper-case letter and only contain letters and spaces.")] // First character upper case, only contains letters and spaces
         public string Coordinator {  get; set; } = null!;
 
         // ------------------------------------- Navigation Properties -------------------------------------

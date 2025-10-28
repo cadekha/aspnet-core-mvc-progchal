@@ -60,6 +60,7 @@ namespace Assignment3.Controllers
             {
                 _context.Add(course); // Add course to db 
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Course created successfully.";
                 return RedirectToAction(nameof(Index));
             }
 
