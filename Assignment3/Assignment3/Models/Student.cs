@@ -31,6 +31,11 @@ namespace Assignment3.Models
         [RegularExpression(@"^04\d{8}$", ErrorMessage = "MobilePhone must start with 04 and be followed by 8 digits.")] 
         public string? PhoneNumber { get; set; } // Can be nullable
 
+        // ------------------------------------- Navigation Properties -------------------------------------
+
+        // Relation: Student has many enrollments
+        public ICollection<Enrolled> Enrollments { get; set; } = new List<Enrolled>(); // initialize to empty list
+
 
 
     }

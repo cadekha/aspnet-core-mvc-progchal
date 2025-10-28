@@ -32,6 +32,11 @@ namespace Assignment3.Models
         [StringLength(50)] // string(50)
         [RegularExpression(@"^[A-Z][a-zA-Z\s]*$")] // First character upper case, only contains letters and spaces
         public string Coordinator {  get; set; } = null!;
+
+        // ------------------------------------- Navigation Properties -------------------------------------
+
+        // Relation: Course has many enrollments
+        public ICollection<Enrolled> Enrollments { get; set; } = new List<Enrolled>(); // initialize to empty list
     }
 
 }
