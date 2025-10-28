@@ -61,7 +61,7 @@ namespace Assignment3.Services
                     FirstName = "Cade",
                     LastName = "Kha",
                     Email = "realemail@gmail.com",
-                    PhoneNumber = "0412345678"
+                    MobilePhone = "0412345678"
 
                 };
 

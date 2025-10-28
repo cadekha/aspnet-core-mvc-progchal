@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment3.Migrations
 {
     [DbContext(typeof(AssignmentDbContext))]
-    [Migration("20251028041035_Initial-Create")]
+    [Migration("20251028055636_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -91,7 +91,7 @@ namespace Assignment3.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("MobilePhone")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 

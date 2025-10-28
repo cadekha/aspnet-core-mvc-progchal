@@ -33,7 +33,7 @@ namespace Assignment3.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(320)", maxLength: 320, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true)
+                    MobilePhone = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: true)
                 },
                 constraints: table =>
                 {

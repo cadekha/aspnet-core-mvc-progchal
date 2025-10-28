@@ -88,7 +88,7 @@ namespace Assignment3.Migrations
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
 
-                    b.Property<string>("PhoneNumber")
+                    b.Property<string>("MobilePhone")
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
