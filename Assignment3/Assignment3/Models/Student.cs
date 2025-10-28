@@ -28,7 +28,7 @@ namespace Assignment3.Models
         [EmailAddress] // Must be a valid email address
         public string Email { get; set; } = null!;
 
-        // MobilePhone
+        // PhoneNumber
         [StringLength(10)] // string(10)
         [RegularExpression(@"^04\d{8}$", ErrorMessage = "MobilePhone must start with 04 and be followed by 8 digits.")] 
         public string? PhoneNumber { get; set; } // Can be nullable

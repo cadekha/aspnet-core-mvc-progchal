@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
-using Assignment3.Data; 
+using Assignment3.Data;
+using Assignment3.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +13,17 @@ builder.Services.AddDbContext<AssignmentDbContext>(options =>
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<DataSeeder>(); // Seeds default data
 
 var app = builder.Build();
+
+// Seed data if needed
+using (var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<DataSeeder>();
+    await seeder.SeedAsync();
+    Console.WriteLine("Database ready.");
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
