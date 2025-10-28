@@ -1,4 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using Assignment3.Data; 
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Add DbContext to connect to database
+builder.Services.AddDbContext<AssignmentDbContext>(options =>
+{
+    // Requires EFCore SqlServer installed
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AssignmentDbContext") ?? throw new InvalidOperationException("Connection string to database not found."));
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

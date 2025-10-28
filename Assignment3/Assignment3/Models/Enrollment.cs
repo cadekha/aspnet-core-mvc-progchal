@@ -10,11 +10,13 @@ namespace Assignment3.Models
         // CourseID
         [Required]
         [ForeignKey("Course")]
+        [StringLength(8)]
         public string CourseID { get; set; } = null!;
 
         // StudentID
         [Required]
         [ForeignKey("Student")]
+        [StringLength(8)]
         public string StudentID { get; set; } = null!;
 
         // ------------------------------------- Navigation Properties -------------------------------------

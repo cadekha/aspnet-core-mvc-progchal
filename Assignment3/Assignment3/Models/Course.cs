@@ -7,6 +7,7 @@ namespace Assignment3.Models
     {
         [Key] // Primary key
         [Required]
+        [StringLength(8)]
         [RegularExpression(@"^COSC\d{4}$", ErrorMessage = "CourseID must start with COSC and be followed by 4 digits.")] // eg. COSC2363
         public string CourseID { get; set; } = null!;
 
