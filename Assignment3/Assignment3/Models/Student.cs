@@ -34,7 +34,7 @@ namespace Assignment3.Models
         // ------------------------------------- Navigation Properties -------------------------------------
 
         // Relation: Student has many enrollments
-        public ICollection<Enrolled> Enrollments { get; set; } = new List<Enrolled>(); // initialize to empty list
+        public ICollection<Enrollment> Enrollments { get; set; } = new List<Enrollment>(); // initialize to empty list
 
 
 

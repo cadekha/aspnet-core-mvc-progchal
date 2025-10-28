@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Assignment3.Models
 {
     [PrimaryKey(nameof(CourseID), nameof(StudentID))]
-    public class Enrolled
+    public class Enrollment
     {
         // CourseID
         [Required]
