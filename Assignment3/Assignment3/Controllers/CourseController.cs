@@ -47,6 +47,25 @@ namespace Assignment3.Controllers
             return View(students); // Return list of Students
         }
 
+        // GET: Course/Create
+        public IActionResult Create() => View();
+
+        // POST: Course/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("CourseID,Title,CreditPoints,Career,Coordinator")] Course course)
+        {
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(course); // Add course to db 
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            // If ModelState is invalid it will show the Create View() again, passing course details back in
+            return View(course);
+        }
 
     }
 }
