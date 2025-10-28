@@ -22,6 +22,31 @@ namespace Assignment3.Controllers
             return View(courses);
         }
 
+        // GET: Course/Students/{id} - Display all currently enrolled students in this course 
+        public async Task<IActionResult> Students(string id)
+        {
+            if (id == null)
+                return NotFound();
+
+            // Given this CourseID get all Students enrolled (using Enrolled table)
+
+            var students = await _context.Enrolled
+                .Where(e => e.CourseID == id)
+                .Include(e => e.Student) // Pull the Student object
+                .Select(e => e.Student) // Take only Student objects, nothing from Enrolled
+                .ToListAsync(); 
+
+            if (students == null)
+                return NotFound();
+
+            var course = await _context.Courses
+                .FindAsync(id); // Find 1 Course by ID
+
+            ViewBag.CourseTitle = course.Title; // Pass title to ViewBag to later use in the View
+
+            return View(students); // Return list of Students
+        }
+
 
     }
 }

@@ -23,6 +23,9 @@
             <th>
                 Course Coordinator
             </th>
+            <th>
+                Enrolled Students
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -44,6 +47,11 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => course.Coordinator)
+                </td>
+                <td>
+                    <a asp-action="Students" asp-route-id="@course.CourseID" class="btn btn-primary">
+                        View Enrolled Students
+                    </a>
                 </td>
             </tr>
         }
