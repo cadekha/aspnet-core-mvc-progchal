@@ -2,7 +2,21 @@ using Microsoft.EntityFrameworkCore;
 using Assignment3.Data;
 using Assignment3.Services;
 
+// FOR API
+using System.Net.Http.Headers; 
+using System.Net.Mime; 
+using Assignment3.Models.Repository; 
+using Assignment3.Models.DataManager; 
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure api client.
+builder.Services.AddHttpClient("api", client =>
+{
+    client.BaseAddress = new Uri("http://localhost:5198"); // API's Port 
+    client.DefaultRequestHeaders.Accept.Add(
+        new MediaTypeWithQualityHeaderValue(MediaTypeNames.Application.Json));
+});
 
 // Add DbContext to connect to database
 builder.Services.AddDbContext<AssignmentDbContext>(options =>
@@ -14,6 +28,7 @@ builder.Services.AddDbContext<AssignmentDbContext>(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<DataSeeder>(); // Seeds default data
+builder.Services.AddScoped<IStudentRepository, StudentManager>(); // For API
 
 var app = builder.Build();
 

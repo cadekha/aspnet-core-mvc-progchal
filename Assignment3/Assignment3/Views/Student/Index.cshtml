@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Assignment3.Models.Student> // Model is a List of Students
+@{
+    ViewData["Title"] = "View All Students";
+}
+
+<h1 class="display-4">Displaying All Students</h1>
+
+<p>This page displays all students in the s4002894_a3 database using the ApiController (ApiStudentController)</p>
+
+<hr />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student ID
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Mobile Phone
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => student.StudentID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => student.PhoneNumber)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
